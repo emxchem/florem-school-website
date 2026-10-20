@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="240" viewBox="0 0 300 240">
+  <defs>
+    <style>
+      .title { font: bold 18px Georgia, serif; fill: #075B35; text-anchor: middle; }
+      .sub { font: 13px system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: #69766D; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="300" height="240" fill="#FFFDF5" />
+  <rect x="10" y="10" width="280" height="220" fill="none" stroke="#79B832" stroke-width="2" rx="12" />
+  <circle cx="150" cy="105" r="38" fill="#EEF7E9" />
+  <path d="M143 95 Q150 72 157 95 Q150 118 143 95" fill="#2F9650" opacity="0.85" />
+  <text x="150" y="155" class="title">Supporting image</text>
+  <text x="150" y="178" class="sub">image to be supplied</text>
+</svg>

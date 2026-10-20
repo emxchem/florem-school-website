@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <defs>
+    <style>
+      .title { font: bold 26px Georgia, serif; fill: #075B35; text-anchor: middle; }
+      .sub { font: 16px system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: #69766D; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="900" height="600" fill="#FFFDF5" />
+  <rect x="24" y="24" width="852" height="552" fill="none" stroke="#79B832" stroke-width="2" rx="24" />
+  <circle cx="450" cy="250" r="140" fill="#79B832" opacity="0.10" />
+  <circle cx="450" cy="250" r="44" fill="#E7C66B" opacity="0.9" />
+  <path d="M430 230 Q450 190 470 230 Q450 270 430 230" fill="#79B832" />
+  <text x="450" y="380" class="title">Hero photograph — image to be supplied</text>
+  <text x="450" y="410" class="sub">FLOREM Nursery &amp; Primary School — school community photograph</text>
+</svg>

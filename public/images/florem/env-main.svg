@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="420" viewBox="0 0 600 420">
+  <defs>
+    <style>
+      .title { font: bold 22px Georgia, serif; fill: #075B35; text-anchor: middle; }
+      .sub { font: 15px system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: #69766D; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="600" height="420" fill="#FFFDF5" />
+  <rect x="16" y="16" width="568" height="388" fill="none" stroke="#79B832" stroke-width="2" rx="16" />
+  <circle cx="300" cy="180" r="70" fill="#EEF7E9" />
+  <path d="M285 165 Q300 130 315 165 Q300 200 285 165" fill="#79B832" opacity="0.85" />
+  <text x="300" y="270" class="title">Learning environment — image to be supplied</text>
+  <text x="300" y="298" class="sub">FLOREM Nursery &amp; Primary School — genuine school photograph placeholder</text>
+</svg>

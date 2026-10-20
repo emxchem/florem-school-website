@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+  <defs>
+    <style>
+      .title { font: bold 20px Georgia, serif; fill: #075B35; text-anchor: middle; }
+      .sub { font: 14px system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: #69766D; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="400" height="500" fill="#FFFDF5" />
+  <rect x="14" y="14" width="372" height="472" fill="none" stroke="#79B832" stroke-width="2" rx="18" />
+  <circle cx="200" cy="200" r="52" fill="#EEF7E9" />
+  <path d="M188 188 Q200 156 212 188 Q200 220 188 188" fill="#79B832" opacity="0.85" />
+  <text x="200" y="290" class="title">Gallery photograph</text>
+  <text x="200" y="318" class="sub">image to be supplied by the school</text>
+</svg>
