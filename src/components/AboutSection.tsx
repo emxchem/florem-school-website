@@ -37,13 +37,15 @@ export function AboutSection() {
           </div>
 
           <div className="relative rounded-2xl border border-white/70 shadow-lg overflow-hidden">
-            <SchoolImage
-              src={paths.about}
-              alt="Placeholder: about photograph showing the FLOREM learning environment — genuine school photograph to be supplied"
-              width={700}
-              height={520}
-              className="w-full h-[460px] object-cover object-position-center"
-            />
+            <div className="relative aspect-[4/3] max-h-[520px] w-full overflow-hidden rounded-[24px] border border-white/80 bg-white/20">
+              <SchoolImage
+                src={paths.about}
+                alt="Placeholder: about photograph showing the FLOREM learning environment — genuine school photograph to be supplied"
+                width={700}
+                height={520}
+                className="w-full h-full object-cover object-position-center"
+              />
+            </div>
             <div className="absolute -right-4 -top-4 w-20 h-20 rounded-full bg-gold/90 flex items-center justify-center text-white text-xs font-bold shadow-lg rotate-6">
               +
             </div>

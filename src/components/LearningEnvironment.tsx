@@ -28,33 +28,39 @@ export function LearningEnvironment() {
             </div>
           </div>
 
-          <div className="lg:col-span-8 grid grid-cols-2 gap-6">
-            <div className="col-span-2 lg:col-span-2 row-span-2 rounded-2xl border border-white/70 shadow-lg overflow-hidden">
-              <SchoolImage
-                src={environmentImages[0].src}
-                alt={environmentImages[0].alt}
-                width={600}
-                height={420}
-                className="w-full h-full object-cover object-position-center"
-              />
+          <div className="lg:col-span-8 grid grid-cols-2 gap-8">
+            <div className="col-span-2 lg:col-span-2 row-span-2 rounded-2xl border border-white/70 shadow-lg overflow-hidden bg-white/30">
+              <div className="relative aspect-[10/7] max-h-[420px] w-full overflow-hidden rounded-[24px] border border-white/60 bg-white/10">
+                <SchoolImage
+                  src={environmentImages[0].src}
+                  alt={environmentImages[0].alt}
+                  width={600}
+                  height={420}
+                  className="w-full h-full object-cover object-position-center"
+                />
+              </div>
             </div>
-            <div className="rounded-2xl border border-white/70 shadow-lg overflow-hidden">
-              <SchoolImage
-                src={environmentImages[1].src}
-                alt={environmentImages[1].alt}
-                width={300}
-                height={240}
-                className="w-full h-full object-cover object-position-center"
-              />
+            <div className="rounded-2xl border border-white/70 shadow-lg overflow-hidden bg-white/30">
+              <div className="relative aspect-[5/4] max-h-[240px] w-full overflow-hidden rounded-[24px] border border-white/60 bg-white/10">
+                <SchoolImage
+                  src={environmentImages[1].src}
+                  alt={environmentImages[1].alt}
+                  width={300}
+                  height={240}
+                  className="w-full h-full object-cover object-position-center"
+                />
+              </div>
             </div>
-            <div className="rounded-2xl border border-white/70 shadow-lg overflow-hidden">
-              <SchoolImage
-                src={environmentImages[2].src}
-                alt={environmentImages[2].alt}
-                width={300}
-                height={240}
-                className="w-full h-full object-cover object-position-center"
-              />
+            <div className="rounded-2xl border border-white/70 shadow-lg overflow-hidden bg-white/30">
+              <div className="relative aspect-[5/4] max-h-[240px] w-full overflow-hidden rounded-[24px] border border-white/60 bg-white/10">
+                <SchoolImage
+                  src={environmentImages[2].src}
+                  alt={environmentImages[2].alt}
+                  width={300}
+                  height={240}
+                  className="w-full h-full object-cover object-position-center"
+                />
+              </div>
             </div>
           </div>
         </div>

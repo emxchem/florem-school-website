@@ -28,15 +28,17 @@ export function HeroSection() {
           </div>
 
           <div className="relative rounded-2xl border border-white/70 shadow-xl overflow-hidden">
-            <div className="absolute -right-12 -bottom-14 w-64 h-64 bg-primary/30 rounded-full blur-[100px] pointer-events-none"></div>
-            <SchoolImage
-              src={paths.hero}
-              alt="Placeholder: hero photograph of the FLOREM school community — genuine school photograph to be supplied"
-              width={900}
-              height={600}
-              priority
-              className="w-full h-[520px] object-cover object-position-center"
-            />
+            <div className="absolute -right-16 -bottom-16 w-72 h-72 bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
+            <div className="relative aspect-[3/2] max-h-[640px] w-full overflow-hidden rounded-[24px] border border-white/80 bg-white/20">
+              <SchoolImage
+                src={paths.hero}
+                alt="Placeholder: hero photograph of the FLOREM school community — genuine school photograph to be supplied"
+                width={900}
+                height={600}
+                priority
+                className="w-full h-full object-cover object-position-center"
+              />
+            </div>
             <div className="absolute left-6 bottom-6">
               <span className="inline-flex items-center gap-2 rounded-lg bg-white/90 px-4 py-2 text-sm font-semibold text-forest shadow-sm border border-white/60">
                 A caring place to learn and grow

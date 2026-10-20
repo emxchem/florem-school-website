@@ -61,7 +61,7 @@ export function GallerySection() {
           />
 
           <div
-            className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 lg:grid-rows-4 gap-6"
+            className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 lg:grid-rows-4 gap-8"
             aria-label="School life gallery"
           >
             {galleryImages.map((image) => {
@@ -87,13 +87,15 @@ export function GallerySection() {
                     }
                   }}
                 >
-                  <SchoolImage
-                    src={image.src}
-                    alt={image.alt}
-                    width={600}
-                    height={600}
-                    className="w-full h-full object-cover object-position-center group-hover:scale-105"
-                  />
+                  <div className="relative aspect-[1/1] w-full overflow-hidden rounded-[24px] border border-white/60 bg-white/20">
+                    <SchoolImage
+                      src={image.src}
+                      alt={image.alt}
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover object-position-center group-hover:scale-102 transition-transform duration-500"
+                    />
+                  </div>
                   <figcaption className="absolute left-4 right-4 bottom-4 text-white/90 text-sm font-medium px-3 py-1.5 rounded-lg bg-forest/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
                     {image.caption}
                   </figcaption>
