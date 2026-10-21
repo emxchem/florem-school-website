@@ -91,7 +91,7 @@ export function Header() {
               </a>
             </div>
 
-            <nav className="hidden lg:flex items-center gap-8 text-sm font-medium">
+            <nav className="hidden lg:flex items-baseline gap-8 text-sm font-medium">
               {NAV_ITEMS.map((item) => (
                 <a
                   key={item.href}

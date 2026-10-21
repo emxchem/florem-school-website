@@ -19,7 +19,7 @@ export function Footer() {
 
   return (
     <footer className="bg-forest text-white border-t border-white/10">
-      <SectionContainer className="py-16 sm:py-20 lg:py-24">
+      <SectionContainer className="py-12 sm:py-16 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-2">
@@ -108,7 +108,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-white/10 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-white/50">
+        <div className="mt-12 border-t border-white/10 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-white/50">
           <p>
             © {year} FLOREM Nursery & Primary School. All rights reserved.
           </p>
