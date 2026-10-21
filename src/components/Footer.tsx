@@ -35,7 +35,7 @@ export function Footer() {
             <p className="text-xl font-heading font-bold text-white tracking-tight">
               FLOREM Nursery &amp; Primary School
             </p>
-            <p className="text-lg italic text-gold">Where Care Flows</p>
+            <p className="text-lg italic text-gold">Raising Flourishing Leaders</p>
             <p className="text-sm text-white/70">
               A caring nursery and primary school in Orozo, Abuja, Nigeria.
             </p>

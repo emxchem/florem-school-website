@@ -12,8 +12,8 @@ export interface ButtonProps
 const variants = {
   primary: 'bg-primary text-white hover:bg-forest',
   secondary: 'bg-forest text-white hover:bg-primary',
-  outline: 'border border-transparent text-text hover:bg-mint hover:text-forest',
-  ghost: 'text-muted hover:text-forest hover:bg-mint',
+  outline: 'border-2 border-primary text-forest hover:bg-primary hover:text-white',
+  ghost: 'text-forest hover:text-primary hover:bg-mint/20',
 } as const
 
 const sizes = {

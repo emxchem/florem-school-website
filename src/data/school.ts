@@ -10,7 +10,7 @@
  */
 export const school = {
   name: 'FLOREM Nursery & Primary School',
-  tagline: 'Where Care Flows',
+  tagline: 'Raising Flourishing Leaders',
   address: 'A40 Cajah Estate, Orozo, Abuja, Nigeria.',
   phone: '09130000504',
   phoneLink: '09130000504',

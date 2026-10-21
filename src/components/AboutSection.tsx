@@ -13,7 +13,7 @@ export function AboutSection() {
           support={
             "Every child deserves a place where they feel cared for, encouraged, and ready to discover the world around them. FLOREM brings care and learning together in an environment designed to support children's early development and growing confidence."
           }
-          tagline="Where Care Flows"
+          tagline="Raising Flourishing Leaders"
         />
 
         <div className="mt-16 lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
@@ -30,7 +30,7 @@ export function AboutSection() {
             </p>
             <div className="rounded-2xl border border-primary/20 bg-mint/40 p-6">
               <p className="font-semibold text-forest">
-                <span className="block">"Where Care Flows"</span>
+                <span className="block">"Raising Flourishing Leaders"</span>
                 <span className="text-sm text-muted mt-1">Our tagline</span>
               </p>
             </div>

@@ -24,7 +24,7 @@ export function HeroSection() {
                 Discover Our School
               </Button>
             </div>
-            <p className="mt-10 text-lg italic text-muted">Where Care Flows</p>
+            <p className="mt-10 text-lg italic text-muted">Raising Flourishing Leaders</p>
           </div>
 
           <div className="relative rounded-2xl border border-white/70 shadow-xl overflow-hidden">
