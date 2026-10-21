@@ -10,10 +10,10 @@ export interface ButtonProps
 }
 
 const variants = {
-  primary: 'bg-primary text-white hover:bg-forest',
-  secondary: 'bg-forest text-white hover:bg-primary',
-  outline: 'border-2 border-primary text-forest hover:bg-primary hover:text-white',
-  ghost: 'text-forest hover:text-primary hover:bg-mint/20',
+  primary: 'bg-[#79B832] text-white hover:bg-[#075B35]',
+  secondary: 'bg-[#075B35] text-white hover:bg-[#79B832]',
+  outline: 'border-2 border-[#79B832] text-[#075B35] hover:bg-[#79B832] hover:text-white',
+  ghost: 'text-[#075B35] hover:text-[#79B832] hover:bg-mint/20',
 } as const
 
 const sizes = {
