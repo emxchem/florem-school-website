@@ -29,10 +29,10 @@ export function Footer() {
                 width="360"
                 height="110"
                 loading="eager"
-                className="h-8 w-auto object-contain"
+                className="h-12 w-auto object-contain mb-2"
               />
             </div>
-            <p className="text-lg font-heading font-bold text-white tracking-tight">
+            <p className="text-xl font-heading font-bold text-white tracking-tight">
               FLOREM Nursery &amp; Primary School
             </p>
             <p className="text-lg italic text-gold">Where Care Flows</p>

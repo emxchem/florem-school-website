@@ -83,9 +83,9 @@ export function Header() {
                   width="360"
                   height="110"
                   loading="eager"
-                  className="h-10 w-auto object-contain"
+                  className="h-14 w-auto object-contain"
                 />
-                <span className="hidden sm:block font-heading text-xl font-bold text-forest tracking-tight">
+                <span className="hidden sm:block font-heading text-2xl font-bold text-forest tracking-tight">
                   FLOREM Nursery &amp; Primary School
                 </span>
               </a>
