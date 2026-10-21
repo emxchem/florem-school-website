@@ -65,7 +65,7 @@ export function Header() {
         className={`
           sticky top-0 z-40 transition-colors duration-300
           ${scrolled
-            ? 'bg-white/80 backdrop-blur-md border-b border-white/60 shadow-sm'
+            ? 'bg-white/50 backdrop-blur-md border-b border-white/40 shadow-sm'
             : 'bg-transparent'}
         `}
       >
