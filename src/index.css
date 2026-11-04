@@ -8,9 +8,14 @@
   --color-mint: #EEF7E9;
   --color-cream: #FFFDF5;
   --color-white: #FFFFFF;
-  --color-text: #25352D;
-  --color-muted: #69766D;
+  --color-text: #29292D;
+  --color-muted: #686868;
   --color-gold: #E7C66B;
+
+  /* Grey/white design system */
+  --color-bg: #FFFFFF;
+  --color-bg-secondary: #F2F2F2;
+  --color-border: #E5E5E5;
 
   /* Typography */
   --font-heading: Georgia, "Times New Roman", Times, serif;
@@ -27,7 +32,7 @@ html {
 }
 
 body {
-  background-color: var(--color-cream);
+  background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: 18px;
@@ -44,7 +49,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  color: var(--color-forest);
+  color: var(--color-text);
   line-height: 1.25;
   margin: 0;
 }
