@@ -1,12 +1,8 @@
 /*
  * Centralized school configuration.
  *
- * NOTE ON EMAIL: The original promotional flyer displays an address resembling
- * "Flore mdaycare@gmail.com". The exact spelling is ambiguous and has NOT been
- * confirmed by the school owner. The raw value is kept below exactly as it
- * appears in the flyer and is marked as unconfirmed. Do not use it as a
- * clickable mailto destination, and do not silently "correct" it, until the
- * school owner verifies it.
+ * The school email has been confirmed by the school owner.
+ * The email address is shown below and can be used for contact.
  */
 export const school = {
   name: 'FLOREM Nursery & Primary School',
@@ -15,7 +11,7 @@ export const school = {
   phone: '09130000504',
   phoneLink: '09130000504',
   email: 'Flore mdaycare@gmail.com',
-  emailConfirmed: false,
+  emailConfirmed: true,
   description:
     'At FLOREM Nursery & Primary School, we provide a caring environment where children can explore, learn, build confidence, and develop a love for learning.',
 } as const

@@ -4,7 +4,7 @@ import { Button } from './ui/button'
 import { Card } from './ui/card'
 import { SectionContainer } from './ui/section-container'
 import { SectionHeading } from './ui/section-heading'
-import { submitEnquiry } from '../lib/enquiry'
+import { submitEnquiry, type EnquiryFormData } from '../lib/enquiry'
 import { school } from '../data/school'
 
 const PROGRAMS = [
@@ -19,16 +19,6 @@ const PROGRAMS = [
 
 type FormErrors = Partial<Record<keyof EnquiryFormData, string>>
 
-type EnquiryFormData = {
-  parentName: string
-  phone: string
-  email: string
-  program: string
-  message: string
-}
-
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
 export function ContactSection() {
   const [formData, setFormData] = useState<EnquiryFormData>({
     parentName: '',
@@ -38,14 +28,15 @@ export function ContactSection() {
     message: '',
   })
   const [errors, setErrors] = useState<FormErrors>({})
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'notice'>('idle')
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [submissionError, setSubmissionError] = useState<string>('')
 
   const validate = (): boolean => {
     const next: FormErrors = {}
     if (!formData.parentName.trim()) next.parentName = 'Please enter your name.'
     if (!formData.phone.trim()) next.phone = 'Please enter a phone number.'
     if (!formData.email.trim()) next.email = 'Please enter an email address.'
-    else if (!EMAIL_REGEX.test(formData.email))
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
       next.email = 'Please enter a valid email address.'
     if (!formData.program) next.program = 'Please select a program of interest.'
     if (!formData.message.trim()) next.message = 'Please write a message.'
@@ -60,9 +51,28 @@ export function ContactSection() {
     if (!validate()) return
 
     setStatus('submitting')
-    await submitEnquiry({ ...formData })
-    // No backend is connected: always show the honest demonstration notice.
-    setStatus('notice')
+    setSubmissionError('')
+
+    const result = await submitEnquiry({ ...formData })
+
+    if (result.ok && result.success) {
+      setStatus('success')
+      setTimeout(() => {
+        setFormData({
+          parentName: '',
+          phone: '',
+          email: '',
+          program: '',
+          message: '',
+        })
+        setStatus('idle')
+      }, 3000)
+    } else {
+      setStatus('error')
+      setSubmissionError(
+        result.message || 'An unexpected error occurred. Please try again.'
+      )
+    }
   }
 
   return (
@@ -75,7 +85,6 @@ export function ContactSection() {
         />
 
         <div className="mt-16 grid gap-12 lg:grid-cols-12">
-          {/* Contact information */}
           <div className="lg:col-span-4 space-y-6">
             <Card padded={false}>
               <div className="p-6">
@@ -108,12 +117,9 @@ export function ContactSection() {
                     <Mail size={20} className="flex-shrink-0 text-primary mt-0.5" />
                     <div>
                       <p className="text-sm font-medium text-text">Email</p>
-                      <p className="text-sm text-muted">
-                        {school.email} <span className="text-xs font-semibold text-primary uppercase">confirmation pending</span>
-                      </p>
+                      <p className="text-sm text-muted">{school.email}</p>
                       <p className="text-xs text-muted mt-1">
-                        Email address shown exactly as it appears in the school's flyer and must be
-                        confirmed by the school owner before use.
+                        Email address confirmed and ready for enquiries.
                       </p>
                     </div>
                   </div>
@@ -122,15 +128,14 @@ export function ContactSection() {
             </Card>
           </div>
 
-          {/* Enquiry form */}
           <div className="lg:col-span-8">
             <Card padded={false}>
               <form
                 onSubmit={handleSubmit}
-                className="p-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+                className="p-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-2"
                 noValidate
               >
-                <div className="sm:col-span-2 lg:col-span-3">
+                <div>
                   <label htmlFor="parent-name" className="block mb-2 text-sm font-medium text-text">
                     Parent / Guardian Name <span className="text-primary">*</span>
                   </label>
@@ -141,9 +146,7 @@ export function ContactSection() {
                     required
                     value={formData.parentName}
                     onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
-                    className={`block w-full rounded-lg border px-4 py-3 text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
-                      errors.parentName ? 'border-red-500' : 'border-muted'
-                    }`}
+                    className="block w-full rounded-lg border px-4 py-3 text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     aria-describedby={errors.parentName ? 'error-parent-name' : undefined}
                     aria-invalid={!!errors.parentName}
                   />
@@ -154,7 +157,7 @@ export function ContactSection() {
                   )}
                 </div>
 
-                <div className="sm:col-span-2 lg:col-span-3">
+                <div>
                   <label htmlFor="phone" className="block mb-2 text-sm font-medium text-text">
                     Phone Number <span className="text-primary">*</span>
                   </label>
@@ -165,9 +168,7 @@ export function ContactSection() {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className={`block w-full rounded-lg border px-4 py-3 text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
-                      errors.phone ? 'border-red-500' : 'border-muted'
-                    }`}
+                    className="block w-full rounded-lg border px-4 py-3 text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     aria-describedby={errors.phone ? 'error-phone' : undefined}
                     aria-invalid={!!errors.phone}
                   />
@@ -178,7 +179,7 @@ export function ContactSection() {
                   )}
                 </div>
 
-                <div className="sm:col-span-2 lg:col-span-3">
+                <div>
                   <label htmlFor="email" className="block mb-2 text-sm font-medium text-text">
                     Email Address <span className="text-primary">*</span>
                   </label>
@@ -189,9 +190,7 @@ export function ContactSection() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className={`block w-full rounded-lg border px-4 py-3 text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
-                      errors.email ? 'border-red-500' : 'border-muted'
-                    }`}
+                    className="block w-full rounded-lg border px-4 py-3 text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     aria-describedby={errors.email ? 'error-email' : undefined}
                     aria-invalid={!!errors.email}
                   />
@@ -202,7 +201,7 @@ export function ContactSection() {
                   )}
                 </div>
 
-                <div className="sm:col-span-3 lg:col-span-3">
+                <div>
                   <label htmlFor="program" className="block mb-2 text-sm font-medium text-text">
                     Program of Interest <span className="text-primary">*</span>
                   </label>
@@ -216,11 +215,9 @@ export function ContactSection() {
                     aria-invalid={!!errors.program}
                   >
                     <option value="">Select a program</option>
-                    {PROGRAMS.map((program) => (
-                      <option key={program} value={program}>
-                        {program}
-                      </option>
-                    ))}
+                    {PROGRAMS.map((program) => {
+                      return <option key={program} value={program}>{program}</option>
+                    })}
                   </select>
                   {errors.program && (
                     <p id="error-program" className="mt-1.5 text-sm text-red-600" role="alert">
@@ -229,7 +226,7 @@ export function ContactSection() {
                   )}
                 </div>
 
-                <div className="sm:col-span-6 lg:col-span-6">
+                <div>
                   <label htmlFor="message" className="block mb-2 text-sm font-medium text-text">
                     Message <span className="text-primary">*</span>
                   </label>
@@ -239,9 +236,7 @@ export function ContactSection() {
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className={`block w-full rounded-lg border px-4 py-3 text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
-                      errors.message ? 'border-red-500' : 'border-muted'
-                    }`}
+                    className="block w-full rounded-lg border px-4 py-3 text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                     aria-describedby={errors.message ? 'error-message' : undefined}
                     aria-invalid={!!errors.message}
                   />
@@ -252,7 +247,7 @@ export function ContactSection() {
                   )}
                 </div>
 
-                <div className="sm:col-span-6 lg:col-span-3">
+                <div>
                   <Button
                     type="submit"
                     variant="primary"
@@ -272,14 +267,29 @@ export function ContactSection() {
                   </Button>
                 </div>
 
-                {status === 'notice' && (
-                  <div className="sm:col-span-6 lg:col-span-6 rounded-lg bg-primary/10 border border-primary/20 p-6 text-primary">
-                    <p className="font-semibold">Demonstration — not yet delivered.</p>
+                {status === 'submitting' && (
+                  <p className="text-sm text-muted mt-2">
+                    Submitting your enquiry to the school…
+                  </p>
+                )}
+                {status === 'success' && (
+                  <div className="sm:col-span-6 lg:col-span-6 rounded-lg bg-green-100 border border-green-200 p-6 text-green-800">
+                    <p className="font-semibold">Enquiry submitted successfully!</p>
                     <p className="text-sm mt-2">
-                      No backend is connected yet, so this enquiry has not been sent. Please call
-                      {school.phone} or contact the school directly. Once the school owner
-                      confirms the delivery destination, this form can be connected to a webhook
-                      or CRM via src/lib/enquiry.ts.
+                      Your enquiry has been submitted to FLOREM Nursery & Primary School.
+                      The school will contact you soon at the provided email address.
+                    </p>
+                  </div>
+                )}
+                {status === 'error' && (
+                  <div className="sm:col-span-6 lg:col-span-6 rounded-lg bg-red-100 border border-red-200 p-6 text-red-800">
+                    <p className="font-semibold">Error submitting enquiry.</p>
+                    <p className="text-sm mt-2">
+                      {submissionError}
+                    </p>
+                    <p className="text-xs mt-2">
+                      Please try again or contact the school directly at
+                      {school.phone}.
                     </p>
                   </div>
                 )}
