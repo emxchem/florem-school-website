@@ -24,7 +24,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       {tagline && (
         <p className="mb-6 text-lg text-muted italic">{tagline}</p>
       )}
-      {support && <p className="text-muted max-w-2xl mx-auto">{support}</p>}
+      {support && <p className="text-body max-w-2xl mx-auto">{support}</p>}
     </div>
   )
 }

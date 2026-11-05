@@ -32,7 +32,7 @@ export function ProgramsSection() {
                     <Icon size={20} />
                   </div>
                   {program.age && (
-                    <span className="ml-auto text-[11px] font-semibold tracking-wider uppercase rounded-full bg-bg-secondary px-2.5 py-0.5 text-muted">
+                    <span className="ml-auto text-[11px] font-semibold tracking-wider uppercase rounded-full bg-bg-secondary px-2.5 py-0.5 text-body">
                       {program.age}
                     </span>
                   )}

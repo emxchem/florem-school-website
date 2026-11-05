@@ -30,7 +30,7 @@ export function AdmissionsSection() {
             </a>
           </div>
 
-          <p className="mt-12 text-sm text-muted text-center max-w-xs mx-auto">
+          <p className="mt-12 text-sm text-body text-center max-w-xs mx-auto">
             Admission availability is confirmed by the school directly — please get in touch to
             check current openings before applying.
           </p>
