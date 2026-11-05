@@ -29,13 +29,13 @@ export default function App() {
       {/* WhatsApp floating button */}
       <a
         href="https://wa.me/2349130000504?text=Hello%20FLOREM%20Nursery%20&%20Primary%20School.%20I%20visited%20your%20website%20and%20would%20like%20to%20make%20an%20enquiry.%20Please%20assist%20me."
-        className="fixed bottom-4 right-4 z-50 rounded-full bg-green-500/90 hover:bg-green-600/90 p-3 shadow-lg transition-colors transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 aural:hidden"
+        className="fixed bottom-4 right-4 z-50 rounded-full bg-white/90 hover:bg-white/95 p-3 shadow-lg transition-colors transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 focus-visible:ring-offset-2 aural:hidden"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp FLOREM School"
       >
         <svg
-          className="w-5 h-5 text-green-500"
+          className="w-5 h-5 text-muted"
           fill="currentColor"
           viewBox="0 0 24 24"
         >

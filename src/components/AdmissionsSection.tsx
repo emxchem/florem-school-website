@@ -6,7 +6,7 @@ import { school } from '../data/school'
 
 export function AdmissionsSection() {
   return (
-    <section id="admissions" className="bg-forest text-white py-24 sm:py-32 border-y border-white/10">
+    <section id="admissions" className="bg-white text-white py-24 sm:py-32 border-y border-white/10">
       <div className="relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-primary/5 -z-10" />
         <SectionContainer narrow>

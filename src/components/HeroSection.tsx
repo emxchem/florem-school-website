@@ -8,7 +8,7 @@ export function HeroSection() {
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10 py-16 sm:py-24 lg:py-32">
         <div className="lg:grid lg:grid-cols-2 lg:items-center lg:gap-16">
           <div className="lg:pr-8">
-            <p className="mb-6 block text-sm font-semibold tracking-wider text-primary uppercase">
+            <p className="mb-6 block text-sm font-semibold tracking-wider text-text uppercase">
               FLOREM Nursery &amp; Primary School
             </p>
             <h1 className="mb-6">Where Little Beginnings Blossom Into Bright Futures.</h1>
@@ -40,7 +40,7 @@ export function HeroSection() {
               />
             </div>
             <div className="absolute left-6 bottom-6">
-              <span className="inline-flex items-center gap-2 rounded-lg bg-white/90 px-4 py-2 text-sm font-semibold text-forest shadow-sm border border-white/60">
+              <span className="inline-flex items-center gap-2 rounded-lg bg-white/90 px-4 py-2 text-sm font-semibold text-text shadow-sm border border-white/60">
                 A caring place to learn and grow
               </span>
             </div>

@@ -1,21 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette — centralized so colors can be changed globally */
-  --color-primary: #79B832;
-  --color-forest: #075B35;
-  --color-secondary: #2F9650;
-  --color-mint: #EEF7E9;
+  /* Brand palette — sophisticated grey/white with gold and purple accents */
+  --color-primary: #C49A3A;    /* Gold accent */
+  --color-forest: #F1F2F4;     /* Secondary background — soft grey */
+  --color-secondary: #D1D5DB;  /* Borders and subtle divisions */
+  --color-mint: #F8F9FA;       /* Near-white for card backgrounds */
   --color-cream: #FFFDF5;
   --color-white: #FFFFFF;
-  --color-text: #29292D;
-  --color-muted: #686868;
-  --color-gold: #E7C66B;
+  --color-text: #292D32;       /* Main headings — charcoal */
+  --color-body: #4B5563;       /* Body text */
+  --color-muted: #6B7280;      /* Muted text */
+  --color-gold: #C49A3A;       /* Gold accent — permitted secondary color */
+  --color-purple: #70449A;     /* Purple accent — complementary */
 
   /* Grey/white design system */
   --color-bg: #FFFFFF;
-  --color-bg-secondary: #F2F2F2;
-  --color-border: #E5E5E5;
+  --color-bg-secondary: #F1F2F4;
+  --color-border: #D1D5DB;
 
   /* Typography */
   --font-heading: Georgia, "Times New Roman", Times, serif;
@@ -75,7 +77,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-forest);
+  color: var(--color-purple);
 }
 
 :focus-visible {

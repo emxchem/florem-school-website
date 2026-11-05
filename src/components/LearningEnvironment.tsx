@@ -19,7 +19,7 @@ export function LearningEnvironment() {
               FLOREM's environment is designed around the children in its care — a place where
               they can move freely, play safely, and feel at home while they learn.
             </p>
-            <div className="rounded-xl border border-gold/20 bg-gold/10 p-6">
+            <div className="rounded-xl border border-[color-border]/20 bg-[color-bg-secondary]/10 p-6">
               <h3 className="mb-2 text-lg">A caring setting for every age</h3>
               <p className="text-sm text-muted">
                 From creche to primary, the spaces at FLOREM are arranged to support each

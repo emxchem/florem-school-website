@@ -96,7 +96,7 @@ export function GallerySection() {
                       className="w-full h-full object-cover object-position-center group-hover:scale-102 transition-transform duration-500"
                     />
                   </div>
-                  <figcaption className="absolute left-4 right-4 bottom-4 text-white/90 text-sm font-medium px-3 py-1.5 rounded-lg bg-forest/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                  <figcaption className="absolute left-4 right-4 bottom-4 text-white/90 text-sm font-medium px-3 py-1.5 rounded-lg bg-[color-bg-secondary]/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
                     {image.caption}
                   </figcaption>
                 </figure>

@@ -273,7 +273,7 @@ export function ContactSection() {
                   </p>
                 )}
                 {status === 'success' && (
-                  <div className="sm:col-span-6 lg:col-span-6 rounded-lg bg-green-100 border border-green-200 p-6 text-green-800">
+                  <div className="sm:col-span-6 lg:col-span-6 rounded-lg bg-[color-bg-secondary]/10 border border-[color-border]/20 p-6 text-[color-text]">
                     <p className="font-semibold">Enquiry submitted successfully!</p>
                     <p className="text-sm mt-2">
                       Your enquiry has been submitted to FLOREM Nursery & Primary School.

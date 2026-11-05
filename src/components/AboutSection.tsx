@@ -28,8 +28,8 @@ export function AboutSection() {
               designed to nurture curiosity, build confidence, and lay the foundations for a
               lifetime of learning.
             </p>
-            <div className="rounded-2xl border border-primary/20 bg-mint/40 p-6">
-              <p className="font-semibold text-forest">
+            <div className="rounded-2xl border border-[color-border]/20 bg-[color-bg-secondary]/40 p-6">
+              <p className="font-semibold text-text">
                 <span className="block">"Raising Flourishing Leaders"</span>
                 <span className="text-sm text-muted mt-1">Our tagline</span>
               </p>

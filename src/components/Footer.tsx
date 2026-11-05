@@ -18,7 +18,7 @@ export function Footer() {
   const year = CURRENT_YEAR
 
   return (
-    <footer className="bg-forest text-white border-t border-white/10">
+    <footer className="bg-white text-white border-t border-white/10">
       <SectionContainer className="py-12 sm:py-16 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-4 space-y-4">

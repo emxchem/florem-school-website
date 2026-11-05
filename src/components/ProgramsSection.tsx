@@ -28,11 +28,11 @@ export function ProgramsSection() {
             return (
               <Card key={program.id} padded>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="rounded-lg bg-primary/10 p-3 text-primary">
+                  <div className="rounded-lg bg-[color-bg-secondary]/10 p-3 text-[color-text]">
                     <Icon size={20} />
                   </div>
                   {program.age && (
-                    <span className="ml-auto text-[11px] font-semibold tracking-wider uppercase rounded-full bg-forest/10 px-2.5 py-0.5 text-forest">
+                    <span className="ml-auto text-[11px] font-semibold tracking-wider uppercase rounded-full bg-[color-bg-secondary]/10 px-2.5 py-0.5 text-[color-muted]">
                       {program.age}
                     </span>
                   )}
@@ -41,7 +41,7 @@ export function ProgramsSection() {
                 <p className="mb-6 text-sm text-muted">{program.description}</p>
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-text hover:underline"
                 >
                   Enquire about this program <span aria-hidden="true">→</span>
                 </a>

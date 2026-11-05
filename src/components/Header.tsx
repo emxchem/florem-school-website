@@ -55,7 +55,7 @@ export function Header() {
       {/* Skip link for keyboard users */}
       <a
         href="#main"
-        className="sr-only focus:not-sr-only fixed top-4 left-4 z-50 bg-forest text-white px-4 py-2 rounded-xl transition-transform -translate-y-full focus:translate-y-0"
+        className="sr-only focus:not-sr-only fixed top-4 left-4 z-50 bg-white text-white px-4 py-2 rounded-xl transition-transform -translate-y-full focus:translate-y-0"
       >
         Skip to main content
       </a>
@@ -85,7 +85,7 @@ export function Header() {
                   loading="eager"
                   className="h-14 w-auto object-contain"
                 />
-                <span className="hidden sm:block font-heading text-2xl font-bold text-forest tracking-tight">
+                <span className="hidden sm:block font-heading text-2xl font-bold text-text tracking-tight">
                   FLOREM Nursery &amp; Primary School
                 </span>
               </a>
@@ -100,7 +100,7 @@ export function Header() {
                     text-text hover:text-primary transition-colors
                     ${
                       activeId === item.href.slice(1)
-                        ? 'text-forest underline underline-offset-4'
+                        ? 'text-text underline underline-offset-4'
                         : ''
                     }
                   `}
@@ -126,7 +126,7 @@ export function Header() {
               </a>
               <button
                 type="button"
-                className="lg:hidden p-2 rounded-lg text-text hover:bg-mint transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest"
+                className="lg:hidden p-2 rounded-lg text-text hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 transition-colors"
                 aria-expanded={menuOpen}
                 aria-controls="mobile-menu"
                 onClick={toggleMenu}
@@ -150,7 +150,7 @@ export function Header() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="block px-4 py-3 text-base font-medium text-text rounded-xl hover:bg-mint hover:text-forest transition-colors"
+                  className="block px-4 py-3 text-base font-medium text-text rounded-xl hover:bg-white/90 hover:text-text transition-colors"
                   onClick={closeMenu}
                 >
                   {item.label}
@@ -158,7 +158,7 @@ export function Header() {
               ))}
               <a
                 href="#contact"
-                className="mx-auto mt-4 block text-center px-6 py-3 text-base font-semibold text-white bg-primary rounded-xl hover:bg-forest transition-colors"
+                className="mx-auto mt-4 block text-center px-6 py-3 text-base font-semibold text-white bg-white/90 rounded-xl hover:bg-white/95 transition-colors"
                 onClick={closeMenu}
               >
                 Enquire About Admission

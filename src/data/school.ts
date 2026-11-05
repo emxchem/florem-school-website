@@ -17,20 +17,21 @@ export const school = {
 } as const
 
 export const brand = {
-  primary: '#79B832',
-  forest: '#075B35',
-  secondary: '#2F9650',
-  mint: '#EEF7E9',
+  primary: '#C49A3A',     /* Gold accent */
+  forest: '#F1F2F4',      /* Secondary background */
+  secondary: '#D1D5DB',   /* Borders */
+  mint: '#F8F9FA',        /* Near-white */
   cream: '#FFFDF5',
   white: '#FFFFFF',
-  text: '#25352D',
-  muted: '#69766D',
-  gold: '#E7C66B',
+  text: '#292D32',        /* Main headings */
+  body: '#4B5563',        /* Body text */
+  muted: '#6B7280',       /* Muted text */
+  gold: '#C49A3A',        /* Gold accent */
 } as const
 
 export const paths = {
-  logo: '/images/florem/logo.jpg',
-  favicon: '/images/florem/logo.jpg',
+  logo: '/images/florem/florem-official-logo.jpeg',
+  favicon: '/images/florem/florem-official-logo.jpeg',
   hero: '/images/florem/hero.jpg',
   about: '/images/florem/about.jpg',
   community: '/images/florem/community.jpg',

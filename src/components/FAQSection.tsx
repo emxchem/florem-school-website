@@ -27,7 +27,7 @@ export function FAQSection() {
               <div key={faq.id} className="rounded-xl border border-muted">
                 <button
                   type="button"
-                  className="flex w-full items-center justify-between px-6 py-4 text-left text-forest font-semibold text-lg transition-all"
+                  className="flex w-full items-center justify-between px-6 py-4 text-left text-text font-semibold text-lg transition-all"
                   aria-expanded={expanded}
                   aria-controls={`faq-content-${faq.id}`}
                   onClick={() => toggle(faq.id)}
