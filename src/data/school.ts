@@ -31,10 +31,10 @@ export const brand = {
 } as const
 
 export const paths = {
-  logo: '/images/florem/florem-official-logo.jpeg.jpeg',
-  favicon: '/images/florem/florem-official-logo.jpeg.jpeg',
-  hero: '/images/florem/hero.jpg',
-  about: '/images/florem/about.jpg',
+  logo: '/images/florem/florem-official-logo-display.jpg',
+  favicon: '/images/florem/florem-official-logo-display.jpg',
+  hero: '/images/florem/hero-optimized.jpg',
+  about: '/images/florem/about-optimized.jpg',
   community: '/images/florem/community.jpg',
   flyer: '/images/florem/flyer.jpg',
 } as const

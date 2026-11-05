@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://florem-school-website.pages.dev/sitemap.xml

@@ -62,7 +62,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: 'gallery-5',
-    src: '/images/florem/gallery-5.jpg',
+    src: '/images/florem/about-optimized.jpg',
     alt: 'FLOREM school community — children seated in class with a teacher',
     width: 710,
     height: 315,
@@ -70,7 +70,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: 'gallery-6',
-    src: '/images/florem/gallery-6.jpg',
+    src: '/images/florem/hero-optimized.jpg',
     alt: 'FLOREM school community — large group photo with teacher and pupils',
     width: 555,
     height: 436,
