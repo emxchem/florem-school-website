@@ -39,7 +39,7 @@ export const faqs: FAQ[] = [
     id: 'faq-5',
     question: 'How can I enquire about admission?',
     answer:
-      'You can use the enquiry form on this website or call 09130000504. The form is a demonstration and does not deliver messages until a backend is connected by the school.',
+      'You can use the enquiry form on this website or call 09130000504. Form delivery depends on the configured enquiry service; contact the school directly to confirm receipt.',
   },
   {
     id: 'faq-6',

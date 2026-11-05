@@ -28,7 +28,7 @@ export function AboutSection() {
               designed to nurture curiosity, build confidence, and lay the foundations for a
               lifetime of learning.
             </p>
-            <div className="rounded-2xl border border-[color-border]/20 bg-[color-bg-secondary]/40 p-6">
+            <div className="rounded-2xl border border-border/20 bg-bg-secondary/40 p-6">
               <p className="font-semibold text-text">
                 <span className="block">"Raising Flourishing Leaders"</span>
                 <span className="text-sm text-muted mt-1">Our tagline</span>
@@ -40,7 +40,7 @@ export function AboutSection() {
             <div className="relative aspect-[4/3] max-h-[520px] w-full overflow-hidden rounded-[24px] border border-white/80 bg-white/20">
               <SchoolImage
                 src={paths.about}
-                alt="Placeholder: about photograph showing the FLOREM learning environment — genuine school photograph to be supplied"
+                alt="Pupils learning together at FLOREM Nursery & Primary School"
                 width={700}
                 height={520}
                 className="w-full h-full object-cover object-position-center"

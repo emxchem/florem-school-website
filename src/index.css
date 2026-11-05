@@ -2,7 +2,7 @@
 
 @theme {
   /* Brand palette — sophisticated grey/white with gold and purple accents */
-  --color-primary: #C49A3A;    /* Gold accent */
+  --color-primary: #563477;    /* Royal purple */
   --color-forest: #F1F2F4;     /* Secondary background — soft grey */
   --color-secondary: #D1D5DB;  /* Borders and subtle divisions */
   --color-mint: #F8F9FA;       /* Near-white for card backgrounds */
@@ -11,8 +11,8 @@
   --color-text: #292D32;       /* Main headings — charcoal */
   --color-body: #4B5563;       /* Body text */
   --color-muted: #6B7280;      /* Muted text */
-  --color-gold: #C49A3A;       /* Gold accent — permitted secondary color */
-  --color-purple: #70449A;     /* Purple accent — complementary */
+  --color-gold: #D4A72C;       /* Warm gold accent */
+  --color-purple: #563477;     /* Royal purple accent */
 
   /* Grey/white design system */
   --color-bg: #FFFFFF;
@@ -70,14 +70,107 @@ h3 {
   font-size: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
 }
 
-a {
+a:not([class*="button-"]) {
   color: var(--color-primary);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-a:hover {
+a:not([class*="button-"]):hover {
   color: var(--color-purple);
+}
+
+.button-primary:hover,
+.button-outline:hover {
+  color: var(--color-white);
+}
+
+.button-secondary:hover {
+  color: var(--color-text);
+}
+
+.site-footer h3 {
+  color: var(--color-white);
+}
+
+.site-footer a {
+  color: rgb(255 255 255 / 92%);
+}
+
+.site-footer a:hover {
+  color: var(--color-gold);
+}
+
+.school-gallery-grid {
+  column-count: 1;
+  column-gap: 14px;
+}
+
+.school-gallery-card {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 14px;
+  break-inside: avoid;
+  vertical-align: top;
+  cursor: zoom-in;
+}
+
+.school-gallery-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 350ms ease;
+}
+
+.school-gallery-card:hover .school-gallery-frame img,
+.school-gallery-card:focus-visible .school-gallery-frame img {
+  transform: scale(1.035);
+}
+
+.school-life-feature img {
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (min-width: 380px) {
+  .school-gallery-grid {
+    column-count: 2;
+    column-gap: 16px;
+  }
+
+  .school-gallery-card {
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .school-gallery-grid {
+    column-count: 3;
+    column-gap: 20px;
+  }
+
+  .school-gallery-card {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .school-gallery-grid {
+    column-count: 3;
+    column-gap: 22px;
+  }
+
+  .school-gallery-card {
+    margin-bottom: 22px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .school-gallery-grid {
+    column-count: 4;
+  }
 }
 
 :focus-visible {
@@ -97,5 +190,9 @@ a:hover {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .school-gallery-card:hover .school-gallery-frame img,
+  .school-gallery-card:focus-visible .school-gallery-frame img {
+    transform: none;
   }
 }

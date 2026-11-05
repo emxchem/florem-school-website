@@ -1,44 +1,44 @@
-import { useCallback, useState, useEffect } from 'react'
+import { useCallback, useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { SectionContainer } from './ui/section-container'
 import { SectionHeading } from './ui/section-heading'
 import { SchoolImage } from './ui/image'
 import { galleryImages } from '../data/gallery'
 
-/*
- * Desktop asymmetrical grid placement for gallery items.
- * Values are CSS grid line numbers.
- */
-const GRID_PLACEMENT: Record<string, {
-  colStart: number
-  colEnd: number
-  rowStart: number
-  rowEnd: number
-}> = {
-  'gallery-1': { colStart: 1, colEnd: 3, rowStart: 1, rowEnd: 3 },
-  'gallery-2': { colStart: 3, colEnd: 4, rowStart: 1, rowEnd: 3 },
-  'gallery-3': { colStart: 4, colEnd: 5, rowStart: 1, rowEnd: 3 },
-  'gallery-4': { colStart: 3, colEnd: 4, rowStart: 3, rowEnd: 4 },
-  'gallery-5': { colStart: 3, colEnd: 4, rowStart: 4, rowEnd: 5 },
-  'gallery-6': { colStart: 4, colEnd: 5, rowStart: 3, rowEnd: 5 },
-}
-
 export function GallerySection() {
   const [openId, setOpenId] = useState<string | null>(null)
   const activeImage = galleryImages.find((img) => img.id === openId)
+  const isOpen = openId !== null
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const triggerRef = useRef<HTMLButtonElement | null>(null)
 
   const closeLightbox = useCallback(() => setOpenId(null), [])
 
   const navigateLightbox = useCallback((direction: 1 | -1) => {
-    const ids = galleryImages.map((img) => img.id)
-    const current = ids.indexOf(openId ?? '')
-    const next = (current + direction + ids.length) % ids.length
-    setOpenId(ids[next])
-  }, [openId])
+    setOpenId((currentId) => {
+      if (!currentId) return null
+      const currentIndex = galleryImages.findIndex((image) => image.id === currentId)
+      const nextIndex = (currentIndex + direction + galleryImages.length) % galleryImages.length
+      return galleryImages[nextIndex]?.id ?? null
+    })
+  }, [])
+
+  useEffect(() => {
+    if (!isOpen) return
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    closeButtonRef.current?.focus()
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      triggerRef.current?.focus()
+    }
+  }, [isOpen])
 
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
-      if (!openId) return
+      if (!isOpen) return
       if (event.key === 'Escape') {
         closeLightbox()
       } else if (event.key === 'ArrowRight') {
@@ -49,59 +49,63 @@ export function GallerySection() {
     }
     window.addEventListener('keydown', handleKeydown)
     return () => window.removeEventListener('keydown', handleKeydown)
-  }, [openId, closeLightbox, navigateLightbox])
+  }, [isOpen, closeLightbox, navigateLightbox])
+
+  const trapDialogFocus = (event: ReactKeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== 'Tab') return
+    const controls = Array.from(
+      event.currentTarget.querySelectorAll<HTMLButtonElement>('button:not(:disabled)'),
+    )
+    const first = controls[0]
+    const last = controls[controls.length - 1]
+    if (!first || !last) return
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault()
+      last.focus()
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault()
+      first.focus()
+    }
+  }
 
   return (
     <>
-      <section id="school-life" className="bg-cream py-24 sm:py-32 border-y border-white/60">
-        <SectionContainer>
+      <section id="school-life" className="border-y border-border bg-bg-secondary py-14 sm:py-16 lg:py-20">
+        <SectionContainer className="w-[92%] max-w-[1440px] px-0">
           <SectionHeading
-            eyebrow="School Life Gallery"
-            heading="Little Moments, Lasting Memories"
+            eyebrow="SCHOOL LIFE AT FLOREM"
+            heading="Moments That Make Us Flourish"
+            support="Take a glimpse into our vibrant school community, where children learn, explore, build friendships and create memories every day."
           />
 
-          <div
-            className="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 lg:grid-rows-4 gap-8"
-            aria-label="School life gallery"
-          >
-            {galleryImages.map((image) => {
-              const placement = GRID_PLACEMENT[image.id]
-              return (
-                <figure
+          <div className="school-gallery-grid" aria-label="School life gallery">
+            {galleryImages.map((image) => (
+                <button
                   key={image.id}
-                  className={`
-                    group rounded-2xl border border-muted overflow-hidden
-                    transition-transform duration-300
-                    ${placement
-                      ? `lg:col-start-${placement.colStart} lg:col-end-${placement.colEnd} lg:row-start-${placement.rowStart} lg:row-end-${placement.rowEnd}`
-                      : ''
-                  }
-                  `}
-                  onClick={() => setOpenId(image.id)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                      event.preventDefault()
-                      setOpenId(image.id)
-                    }
+                  type="button"
+                  className="school-gallery-card group rounded-xl border border-border/70 bg-white p-0 text-left shadow-sm transition-shadow hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple"
+                  aria-label={`Open photo: ${image.caption ?? image.alt}`}
+                  onClick={(event) => {
+                    triggerRef.current = event.currentTarget
+                    setOpenId(image.id)
                   }}
                 >
-                  <div className="relative aspect-[1/1] w-full overflow-hidden rounded-[24px] border border-white/60 bg-white/20">
-                    <SchoolImage
-                      src={image.src}
-                      alt={image.alt}
-                      width={600}
-                      height={600}
-                      className="w-full h-full object-cover object-position-center group-hover:scale-102 transition-transform duration-500"
-                    />
-                  </div>
-                  <figcaption className="absolute left-4 right-4 bottom-4 text-white/90 text-sm font-medium px-3 py-1.5 rounded-lg bg-[color-bg-secondary]/70 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                    {image.caption}
-                  </figcaption>
-                </figure>
-              )
-            })}
+                  <SchoolImage
+                    src={image.src}
+                    alt={image.alt}
+                    width={image.width}
+                    height={image.height}
+                    className="school-gallery-frame w-full rounded-xl"
+                    objectPosition="center"
+                  />
+                  {image.caption && (
+                    <span className="block px-3 py-2.5 text-sm font-medium text-text">
+                      {image.caption}
+                    </span>
+                  )}
+                </button>
+              ))}
           </div>
         </SectionContainer>
       </section>
@@ -109,17 +113,21 @@ export function GallerySection() {
       {/* Accessible lightbox */}
       {openId && activeImage && (
         <div
-          className="fixed inset-0 z-50 flex flex-col"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-text/95 p-4 sm:p-8"
           role="dialog"
           aria-modal="true"
           aria-labelledby="lightbox-title"
           onClick={closeLightbox}
+          onKeyDown={trapDialogFocus}
         >
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm" />
-          <div className="relative flex-1 flex items-center justify-center p-6 sm:p-10 max-w-[90vw] max-h-[90vh] mx-auto">
+          <div
+            className="relative flex h-full w-full max-w-[1440px] flex-col items-center justify-center gap-3 px-12 py-12 sm:px-16"
+            onClick={(event) => event.stopPropagation()}
+          >
             <button
+              ref={closeButtonRef}
               type="button"
-              className="absolute right-6 top-6 z-10 w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+              className="absolute right-0 top-0 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
               onClick={closeLightbox}
               aria-label="Close gallery"
             >
@@ -127,40 +135,32 @@ export function GallerySection() {
             </button>
             <button
               type="button"
-              className="absolute left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 opacity-50 hover:opacity-100 transition-all"
+              className="absolute left-0 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
               onClick={() => navigateLightbox(-1)}
               aria-label="Previous image"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <SchoolImage
+            <img
               src={activeImage.src}
               alt={activeImage.alt}
-              width={900}
-              height={900}
-              className="w-auto max-w-full max-h-[70vh] object-contain object-position-center rounded-xl border border-white/20 shadow-2xl"
-              priority
+              width={activeImage.width}
+              height={activeImage.height}
+              loading="eager"
+              decoding="async"
+              className="h-auto max-h-[68vh] w-auto max-w-full rounded-xl border border-white/20 object-contain shadow-2xl"
             />
             <button
               type="button"
-              className="absolute right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 opacity-50 hover:opacity-100 transition-all"
+              className="absolute right-0 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
               onClick={() => navigateLightbox(1)}
               aria-label="Next image"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
-              <h3 id="lightbox-title" className="text-white text-lg font-medium">
-                {activeImage.caption}
-              </h3>
-              <button
-                type="button"
-                className="mt-4 text-sm text-white/70 underline underline-offset-4 hover:text-white"
-                onClick={closeLightbox}
-              >
-                Close gallery
-              </button>
-            </div>
+            <p id="lightbox-title" className="max-w-prose text-center text-sm font-medium text-white sm:text-base" aria-live="polite">
+              {activeImage.caption ?? activeImage.alt}
+            </p>
           </div>
         </div>
       )}

@@ -2,6 +2,8 @@ export type GalleryImage = {
   id: string
   src: string
   alt: string
+  width: number
+  height: number
   caption?: string
 }
 
@@ -13,7 +15,7 @@ export type GalleryImage = {
  * information are included.
  *
  * Image-to-file mapping (from the supplied photos):
- *   gallery-1.jpg  -> two pupils in uniform (supplied photo 1)
+ *   gallery-1.jpg  -> featured in School Life and included in the gallery
  *   gallery-2.jpg  -> boy and girl (supplied photo 2)
  *   gallery-3.jpg  -> two pupils portrait (supplied photo 3)
  *   gallery-4.jpg  -> school community with Nigerian flags (supplied photo 4)
@@ -29,40 +31,61 @@ export const galleryImages: GalleryImage[] = [
   {
     id: 'gallery-1',
     src: '/images/florem/gallery-1.jpg',
-    alt: 'FLOREM school community — two pupils in uniform smiling together',
-    caption: 'FLOREM school community',
+    alt: 'Two FLOREM pupils sharing a happy moment at school',
+    width: 514,
+    height: 266,
+    caption: 'A joyful moment at FLOREM',
   },
   {
     id: 'gallery-2',
     src: '/images/florem/gallery-2.jpg',
     alt: 'FLOREM school community — a boy and a girl learning together',
+    width: 505,
+    height: 266,
     caption: 'Learning and growing together',
   },
   {
     id: 'gallery-3',
     src: '/images/florem/gallery-3.jpg',
     alt: 'FLOREM school community — two pupils in uniform portrait',
+    width: 511,
+    height: 266,
     caption: 'Everyday moments at FLOREM',
   },
   {
     id: 'gallery-4',
     src: '/images/florem/gallery-4.jpg',
     alt: 'FLOREM school community — children waving Nigerian flags outdoors',
+    width: 823,
+    height: 315,
     caption: 'Everyday moments at FLOREM',
   },
   {
     id: 'gallery-5',
     src: '/images/florem/gallery-5.jpg',
     alt: 'FLOREM school community — children seated in class with a teacher',
+    width: 710,
+    height: 315,
     caption: 'FLOREM school community',
   },
   {
     id: 'gallery-6',
     src: '/images/florem/gallery-6.jpg',
     alt: 'FLOREM school community — large group photo with teacher and pupils',
+    width: 555,
+    height: 436,
     caption: 'Learning and growing together',
   },
 ]
+
+export const schoolLifeFeature: GalleryImage = {
+  id: 'school-life-feature',
+  src: '/images/florem/gallery-1.jpg',
+  alt: 'Two FLOREM pupils sharing a happy moment at school',
+  width: 514,
+  height: 266,
+  caption: 'A joyful moment at FLOREM',
+}
 
 export const environmentImages = [
   {

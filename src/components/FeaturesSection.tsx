@@ -53,9 +53,9 @@ export function FeaturesSection() {
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="rounded-2xl border border-[color-border] bg-[color-white] p-8 hover:border-[color-border]/60 transition-colors"
+              className="rounded-2xl border border-border bg-white p-8 hover:border-border/60 transition-colors"
             >
-              <div className="mb-6 rounded-lg bg-[color-bg-secondary]/10 p-3 text-[color-text]">{feature.icon}</div>
+              <div className="mb-6 rounded-lg bg-bg-secondary/50 p-3 text-text">{feature.icon}</div>
               <h3 className="mb-3 text-lg">{feature.title}</h3>
               <p className="text-sm text-muted">{feature.body}</p>
             </div>

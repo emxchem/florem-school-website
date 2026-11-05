@@ -1,68 +1,35 @@
+import { Button } from './ui/button'
 import { SectionContainer } from './ui/section-container'
-import { SectionHeading } from './ui/section-heading'
 import { SchoolImage } from './ui/image'
-import { environmentImages } from '../data/gallery'
+import { schoolLifeFeature } from '../data/gallery'
 
 export function LearningEnvironment() {
   return (
-    <section id="environment" className="bg-white py-24 sm:py-32 border-y border-white/60">
-      <SectionContainer>
-        <SectionHeading
-          eyebrow="Learning Environment"
-          heading="Spaces to Learn, Play, and Grow"
-          support="Discover a welcoming environment where children can learn, interact, explore, and enjoy meaningful experiences."
-        />
-
-        <div className="mt-16 lg:grid lg:grid-cols-12 lg:gap-12">
-          <div className="lg:col-span-4 space-y-8">
-            <p className="text-lg text-text">
-              FLOREM's environment is designed around the children in its care — a place where
-              they can move freely, play safely, and feel at home while they learn.
+    <section id="environment" className="bg-white py-16 sm:py-20 lg:py-24">
+      <SectionContainer className="w-[92%] max-w-[1440px] px-0">
+        <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-5">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-purple">
+              LIFE AT FLOREM
             </p>
-            <div className="rounded-xl border border-[color-border]/20 bg-[color-bg-secondary]/10 p-6">
-              <h3 className="mb-2 text-lg">A caring setting for every age</h3>
-              <p className="text-sm text-muted">
-                From creche to primary, the spaces at FLOREM are arranged to support each
-                stage of early development.
-              </p>
-            </div>
+            <h2 className="mb-5 text-3xl sm:text-4xl">
+              A joyful place to learn and belong
+            </h2>
+            <p className="mb-7 max-w-xl text-base leading-relaxed text-body sm:text-lg">
+              Each day brings new discoveries, caring guidance and opportunities to build friendships.
+              At FLOREM, children are encouraged to explore and grow with confidence.
+            </p>
+            <Button as="a" href="#school-life" variant="primary" size="md">
+              Explore the school gallery
+            </Button>
           </div>
-
-          <div className="lg:col-span-8 grid grid-cols-2 gap-8">
-            <div className="col-span-2 lg:col-span-2 row-span-2 rounded-2xl border border-white/70 shadow-lg overflow-hidden bg-white/30">
-              <div className="relative aspect-[10/7] max-h-[420px] w-full overflow-hidden rounded-[24px] border border-white/60 bg-white/10">
-                <SchoolImage
-                  src={environmentImages[0].src}
-                  alt={environmentImages[0].alt}
-                  width={600}
-                  height={420}
-                  className="w-full h-full object-cover object-position-center"
-                />
-              </div>
-            </div>
-            <div className="rounded-2xl border border-white/70 shadow-lg overflow-hidden bg-white/30">
-              <div className="relative aspect-[5/4] max-h-[240px] w-full overflow-hidden rounded-[24px] border border-white/60 bg-white/10">
-                <SchoolImage
-                  src={environmentImages[1].src}
-                  alt={environmentImages[1].alt}
-                  width={300}
-                  height={240}
-                  className="w-full h-full object-cover object-position-center"
-                />
-              </div>
-            </div>
-            <div className="rounded-2xl border border-white/70 shadow-lg overflow-hidden bg-white/30">
-              <div className="relative aspect-[5/4] max-h-[240px] w-full overflow-hidden rounded-[24px] border border-white/60 bg-white/10">
-                <SchoolImage
-                  src={environmentImages[2].src}
-                  alt={environmentImages[2].alt}
-                  width={300}
-                  height={240}
-                  className="w-full h-full object-cover object-position-center"
-                />
-              </div>
-            </div>
-          </div>
+          <SchoolImage
+            src={schoolLifeFeature.src}
+            alt={schoolLifeFeature.alt}
+            width={schoolLifeFeature.width}
+            height={schoolLifeFeature.height}
+            className="school-life-feature w-full rounded-xl border border-border/60 shadow-md lg:col-span-7"
+          />
         </div>
       </SectionContainer>
     </section>

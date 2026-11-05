@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="420" viewBox="0 0 600 420">
   <defs>
     <style>
-      .title { font: bold 22px Georgia, serif; fill: #075B35; text-anchor: middle; }
+      .title { font: bold 22px Georgia, serif; fill: #563477; text-anchor: middle; }
       .sub { font: 15px system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: #69766D; text-anchor: middle; }
     </style>
   </defs>

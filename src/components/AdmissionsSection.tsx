@@ -6,7 +6,7 @@ import { school } from '../data/school'
 
 export function AdmissionsSection() {
   return (
-    <section id="admissions" className="bg-white text-white py-24 sm:py-32 border-y border-white/10">
+    <section id="admissions" className="bg-bg-secondary text-text py-24 sm:py-32 border-y border-border">
       <div className="relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-primary/5 -z-10" />
         <SectionContainer narrow>
@@ -19,18 +19,18 @@ export function AdmissionsSection() {
           />
 
           <div className="mt-16 flex flex-col sm:flex-row gap-6 items-center justify-center">
-            <Button as="a" href="#contact" variant="secondary" size="lg" className="text-white">
+            <Button as="a" href="#contact" variant="secondary" size="lg">
               Start an Enquiry
             </Button>
             <a
               href={`tel:${school.phoneLink}`}
-              className="flex items-center gap-2 text-lg font-medium text-white underline underline-offset-4 hover:opacity-90 transition-opacity"
+              className="flex items-center gap-2 text-lg font-medium text-text underline underline-offset-4 hover:text-purple transition-colors"
             >
               <Phone size={22} strokeWidth={2} /> Call the School: {school.phone}
             </a>
           </div>
 
-          <p className="mt-12 text-sm text-white/60 text-center max-w-xs mx-auto">
+          <p className="mt-12 text-sm text-muted text-center max-w-xs mx-auto">
             Admission availability is confirmed by the school directly — please get in touch to
             check current openings before applying.
           </p>

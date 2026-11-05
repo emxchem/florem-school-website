@@ -21,7 +21,6 @@ export type EnquiryFormData = {
 export type EnquiryResult = {
   ok: boolean
   success: boolean
-  demo: boolean
   message: string
 }
 
@@ -66,7 +65,6 @@ export async function submitEnquiry(
       return {
         ok: true,
         success: true,
-        demo: false,
         message: 'Your enquiry has been submitted successfully. The school will contact you soon.',
       }
     }
@@ -75,7 +73,6 @@ export async function submitEnquiry(
     return {
       ok: false,
       success: false,
-      demo: false,
       message:
         result.message ||
         'An error occurred while processing your enquiry. Please try again later.',
@@ -86,7 +83,6 @@ export async function submitEnquiry(
     return {
       ok: false,
       success: false,
-      demo: false,
       message:
         'Unable to connect to the enquiry server. Please check your internet connection and try again. ' + message,
     }

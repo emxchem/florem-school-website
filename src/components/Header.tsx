@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { Button } from './ui/button'
 import { paths } from '../data/school'
@@ -13,19 +13,8 @@ const NAV_ITEMS = [
 ] as const
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeId, setActiveId] = useState<string | null>('hero')
-  const headerRef = useRef<HTMLElement>(null)
-
-  const handleScroll = useCallback(() => {
-    setScrolled(window.scrollY > 10)
-  }, [])
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [handleScroll])
 
   // Track which section is in view to highlight the active navigation link.
   useEffect(() => {
@@ -55,22 +44,16 @@ export function Header() {
       {/* Skip link for keyboard users */}
       <a
         href="#main"
-        className="sr-only focus:not-sr-only fixed top-4 left-4 z-50 bg-white text-white px-4 py-2 rounded-xl transition-transform -translate-y-full focus:translate-y-0"
+        className="sr-only focus:not-sr-only fixed top-4 left-4 z-50 bg-purple text-white px-4 py-2 rounded-xl transition-transform -translate-y-full focus:translate-y-0"
       >
         Skip to main content
       </a>
 
       <header
-        ref={headerRef}
-        className={`
-          sticky top-0 z-40 transition-colors duration-300
-          ${scrolled
-            ? 'bg-white/50 backdrop-blur-md border-b border-white/40 shadow-sm'
-            : 'bg-transparent'}
-        `}
+        className="sticky top-0 z-40 border-b border-border bg-bg-secondary shadow-sm"
       >
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-          <div className="flex h-16 items-center justify-between lg:h-20">
+          <div className="flex h-24 items-center justify-between">
             <div className="flex items-center gap-3">
               <a
                 href="#hero"
@@ -83,9 +66,9 @@ export function Header() {
                   width="360"
                   height="110"
                   loading="eager"
-                  className="h-14 w-auto object-contain"
+                  className="h-20 w-auto object-contain"
                 />
-                <span className="hidden sm:block font-heading text-2xl font-bold text-text tracking-tight">
+                <span className="hidden xl:block whitespace-nowrap font-heading text-xl font-bold text-text">
                   FLOREM Nursery &amp; Primary School
                 </span>
               </a>
@@ -109,21 +92,12 @@ export function Header() {
                   {item.label}
                 </a>
               ))}
-              <a
-                href="#contact"
-                className="hidden sm:inline-flex"
-                onClick={closeMenu}
-              >
-                <Button variant="outline" size="sm">
-                  Enquire About Admission
-                </Button>
-              </a>
+              <Button as="a" href="#contact" variant="outline" size="sm" onClick={closeMenu}>
+                Enquire About Admission
+              </Button>
             </nav>
 
             <div className="flex items-center gap-3">
-              <a href="#contact" className="hidden sm:inline-flex">
-                <Button size="sm">Enquire About Admission</Button>
-              </a>
               <button
                 type="button"
                 className="lg:hidden p-2 rounded-lg text-text hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 transition-colors"
@@ -143,7 +117,7 @@ export function Header() {
         {menuOpen && (
           <div
             id="mobile-menu"
-            className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10 border-t border-white/60 bg-white/90 backdrop-blur-md pb-6"
+            className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10 border-t border-border bg-bg-secondary pb-6"
           >
             <div className="flex flex-col gap-2 pt-4 space-y-2">
               {NAV_ITEMS.map((item) => (
@@ -156,13 +130,16 @@ export function Header() {
                   {item.label}
                 </a>
               ))}
-              <a
+              <Button
+                as="a"
                 href="#contact"
-                className="mx-auto mt-4 block text-center px-6 py-3 text-base font-semibold text-white bg-white/90 rounded-xl hover:bg-white/95 transition-colors"
+                variant="primary"
+                size="md"
+                className="mx-auto mt-4 w-full max-w-sm"
                 onClick={closeMenu}
               >
                 Enquire About Admission
-              </a>
+              </Button>
             </div>
           </div>
         )}

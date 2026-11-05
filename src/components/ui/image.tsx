@@ -15,6 +15,7 @@ export interface SchoolImageProps extends React.ImgHTMLAttributes<HTMLImageEleme
   width?: number
   height?: number
   fit?: 'cover' | 'contain'
+  objectPosition?: string
   priority?: boolean
 }
 
@@ -24,8 +25,10 @@ export const SchoolImage: React.FC<SchoolImageProps> = ({
   width,
   height,
   fit = 'cover',
+  objectPosition,
   priority = false,
   className,
+  style,
   ...props
 }) => {
   const [error, setError] = React.useState(false)
@@ -43,9 +46,10 @@ export const SchoolImage: React.FC<SchoolImageProps> = ({
         height={height}
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
+        style={{ ...style, ...(objectPosition ? { objectPosition } : {}) }}
         className={cn(
-          'block w-full h-full object-',
-          fit,
+          'block w-full h-full',
+          fit === 'cover' ? 'object-cover' : 'object-contain',
           'transition-opacity duration-300',
           'data-[error]:hidden',
         )}

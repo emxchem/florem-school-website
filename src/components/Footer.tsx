@@ -1,16 +1,7 @@
 import { SectionContainer } from './ui/section-container'
-import { MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import { school, paths } from '../data/school'
 import { programs } from '../data/programs'
-
-const NAV_LINKS = [
-  { href: '#hero', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#programs', label: 'Programs' },
-  { href: '#school-life', label: 'School Life' },
-  { href: '#admissions', label: 'Admissions' },
-  { href: '#contact', label: 'Contact' },
-] as const
 
 const CURRENT_YEAR = new Date().getFullYear()
 
@@ -18,10 +9,10 @@ export function Footer() {
   const year = CURRENT_YEAR
 
   return (
-    <footer className="bg-white text-white border-t border-white/10">
+    <footer className="site-footer bg-text text-white border-t border-white/10">
       <SectionContainer className="py-12 sm:py-16 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
-          <div className="lg:col-span-4 space-y-4">
+          <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-2">
               <img
                 src={paths.logo}
@@ -29,34 +20,16 @@ export function Footer() {
                 width="360"
                 height="110"
                 loading="eager"
-                className="h-12 w-auto object-contain mb-2"
+                className="h-24 w-auto object-contain mb-2"
               />
             </div>
             <p className="text-xl font-heading font-bold text-white tracking-tight">
               FLOREM Nursery &amp; Primary School
             </p>
             <p className="text-lg italic text-gold">Raising Flourishing Leaders</p>
-            <p className="text-sm text-white/70">
+            <p className="text-sm text-white/85">
               A caring nursery and primary school in Orozo, Abuja, Nigeria.
             </p>
-          </div>
-
-          <div className="lg:col-span-3">
-            <h3 className="mb-4 text-sm font-semibold text-white uppercase tracking-wider">
-              Navigation
-            </h3>
-            <ul className="space-y-3">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-white/70 hover:text-gold transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div className="lg:col-span-3">
@@ -72,7 +45,7 @@ export function Footer() {
                   >
                     {program.name}
                     {program.age && (
-                      <span className="text-xs text-white/50"> ({program.age})</span>
+                      <span className="text-xs text-white/75"> ({program.age})</span>
                     )}
                   </a>
                 </li>
@@ -80,7 +53,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-4">
             <h3 className="mb-4 text-sm font-semibold text-white uppercase tracking-wider">
               Contact
             </h3>
@@ -98,23 +71,19 @@ export function Footer() {
                   {school.phone}
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <span className="flex-shrink-0 text-gold" aria-hidden="true">✉</span>
-                <span className="text-xs text-white/50">
-                  Email confirmation pending — contact the school directly.
-                </span>
+              <li className="flex items-start gap-3">
+                <Mail size={18} className="flex-shrink-0 text-gold" />
+                <a href={`mailto:${school.email}`} className="break-all hover:text-gold transition-colors">
+                  {school.email}
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-white/50">
+        <div className="mt-12 border-t border-white/10 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-white/75">
           <p>
             © {year} FLOREM Nursery & Primary School. All rights reserved.
-          </p>
-          <p className="text-sm text-white/40">
-            Demonstration website — images, email address, and other details
-            subject to confirmation by the school owner before launch.
           </p>
         </div>
       </SectionContainer>

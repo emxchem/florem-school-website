@@ -117,10 +117,9 @@ export function ContactSection() {
                     <Mail size={20} className="flex-shrink-0 text-primary mt-0.5" />
                     <div>
                       <p className="text-sm font-medium text-text">Email</p>
-                      <p className="text-sm text-muted">{school.email}</p>
-                      <p className="text-xs text-muted mt-1">
-                        Email address confirmed and ready for enquiries.
-                      </p>
+                      <a href={`mailto:${school.email}`} className="text-sm text-primary hover:underline break-all">
+                        {school.email}
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -273,7 +272,7 @@ export function ContactSection() {
                   </p>
                 )}
                 {status === 'success' && (
-                  <div className="sm:col-span-6 lg:col-span-6 rounded-lg bg-[color-bg-secondary]/10 border border-[color-border]/20 p-6 text-[color-text]">
+                  <div className="sm:col-span-6 lg:col-span-6 rounded-lg bg-bg-secondary/10 border border-border/20 p-6 text-text">
                     <p className="font-semibold">Enquiry submitted successfully!</p>
                     <p className="text-sm mt-2">
                       Your enquiry has been submitted to FLOREM Nursery & Primary School.

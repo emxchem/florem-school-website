@@ -10,10 +10,10 @@ export interface ButtonProps
 }
 
 const variants = {
-  primary: 'bg-[color-bg-secondary] text-[color-text] hover:bg-[color-bg-primary]',
-  secondary: 'bg-[color-bg-secondary] text-[color-text] hover:bg-[color-primary]',
-  outline: 'border-2 border-[color-gray-300] text-[color-text] hover:bg-[color-bg-secondary] hover:text-white',
-  ghost: 'text-[color-text] hover:text-[color-primary] hover:bg-[color-bg-secondary]/20',
+  primary: 'button-primary bg-primary text-white hover:bg-primary/90 hover:text-white',
+  secondary: 'button-secondary bg-gold text-text hover:bg-gold/90 hover:text-text',
+  outline: 'button-outline border-2 border-purple text-purple hover:bg-purple hover:text-white',
+  ghost: 'text-text hover:text-purple hover:bg-bg-secondary/60',
 } as const
 
 const sizes = {
@@ -23,7 +23,7 @@ const sizes = {
 } as const
 
 const base =
-  'inline-flex items-center justify-center rounded-xl font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'
+  'inline-flex items-center justify-center whitespace-nowrap rounded-xl font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50'
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ as, className, variant = 'primary', size = 'md', href, ...props }, ref) => {

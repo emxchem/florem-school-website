@@ -32,7 +32,7 @@ export function HeroSection() {
             <div className="relative aspect-[3/2] max-h-[640px] w-full overflow-hidden rounded-[24px] border border-white/80 bg-white/20">
               <SchoolImage
                 src={paths.hero}
-                alt="Placeholder: hero photograph of the FLOREM school community — genuine school photograph to be supplied"
+                alt="Children and their teacher at FLOREM Nursery & Primary School"
                 width={900}
                 height={600}
                 priority
